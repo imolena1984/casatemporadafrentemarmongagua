@@ -9,54 +9,215 @@
         <title>CALCULADORA DE DIÁRIAS</title>
         <link rel="stylesheet" href="estilogeral.css">
     </head>
-<body>
+    <body>
 
-    <header>
-        <nav>
-            <button class="hamburger" onclick="toggleMenu()">
-                <div></div>
-                <div></div>
-                <div></div>
-            </button>
-            <ul class="menu">
-                <li><a href="index.html">INÍCIO</a></li>
-                <li><a href="mongagua.html">MONGAGUÁ</a></li>
-                <li>
-                    <a href="#">GALERIA</a>
-                    <ul class="submenu">
-                        <li><a href="fotos.html">FOTOS</a></li>
-                        <li><a href="videos.html">VÍDEOS</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">ALUGUE</a>
-                    <ul class="submenu">
-                        <li><a href="agenda.html">AGENDA</a></li>
-                        <li><a href="calculadora.html">PREÇOS</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">COMO CHEGAR</a>
-                    <ul class="submenu">
-                        <li><a href="googlemaps.html">MAPS</a></li>
-                        <li><a href="waze.html">WAZE</a></li>
-                    </ul>
-                </li>
-                <li><a href="contato.html">CONTATO</a></li>
-                <li><a href="comente.html">COMENTE</a></li> <!-- nao esquecer que sera feito em php -->
-            </ul>
-        </nav>
-    </header>
+        <header>
+            <nav>
+                <button class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+                <ul class="menu">
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li><a href="mongagua.html">MONGAGUÁ</a></li>
+                    <li>
+                        <a href="#">GALERIA</a>
+                        <ul class="submenu">
+                            <li><a href="fotos.html">FOTOS</a></li>
+                            <li><a href="videos.html">VÍDEOS</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">ALUGUE</a>
+                        <ul class="submenu">
+                            <li><a href="agenda.html">AGENDA</a></li>
+                            <li><a href="calculadora.html">PREÇOS</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">COMO CHEGAR</a>
+                        <ul class="submenu">
+                            <li><a href="googlemaps.html">MAPS</a></li>
+                            <li><a href="waze.html">WAZE</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="regrasdacasa.html">REGRAS DA CASA</a></li>
+                    <li><a href="comente.html">COMENTE</a></li> <!-- nao esquecer que sera feito em php -->
+                </ul>
+            </nav>
+        </header>
+        <section id="precos">
+            <h1>CALCULADORA DE DIÁRIAS</h1>
+            <form id="calcForm">
+                <label for="month">Escolha o mês:</label>
+                <select id="month" required onchange="updateCalendarMonth()">
+                    <option value="">Selecione</option>
+                    <option value="01">Janeiro</option>
+                    <option value="02">Fevereiro</option>
+                    <option value="03">Março</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Maio</option>
+                    <option value="06">Junho</option>
+                    <option value="07">Julho</option>
+                    <option value="08">Agosto</option>
+                    <option value="09">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
 
-    <section class="text-section">
-        <h1>CALCULE SUA ESTADIA</h1>
-        <p>Pagina ira conter calculadora de diarias em html css e js.</p>
-    </section>
+                <label for="entryDate">Data de Entrada:</label>
+                <input type="date" id="entryDate" required>
 
-    <footer>
-        <p>&copy; 2024 Igor Molena. Todos os direitos reservados.</p>
-    </footer>
+                <label for="exitDate">Data de Saída:</label>
+                <input type="date" id="exitDate" required>
 
-    <script src="scriptmenu.js"></script>
-</body>
+                <label for="people">Número de pessoas:</label>
+                <select id="people" required>
+                    <option value="10">Até 10 pessoas</option>
+                    <option value="15">Até 15 pessoas</option>
+                    <option value="20">Até 20 pessoas</option>
+                </select>
+
+                <label for="pets">Vai trazer animais?</label>
+                <select id="pets" onchange="toggleAnimalType()" required>
+                    <option value="nao">Não</option>
+                    <option value="sim">Sim</option>
+                </select>
+
+                <div id="animalTypeDiv" class="hidden">
+                    <label for="animalType">Selecione o porte do animal:</label>
+                    <select id="animalType">
+                        <option value="pequeno">Pequeno porte</option>
+                        <option value="medio">Médio porte</option>
+                        <option value="grande">Grande porte</option>
+                    </select>
+                </div>
+
+                <button type="button" onclick="calculate()">Calcular</button>
+                <button type="reset">Limpar consulta</button>
+            </form>
+
+            <div id="result"></div>
+
+            <script>
+                const altaTemporada = ['01', '12', '07'];
+                const blockedDatesNatal = ['12-22', '12-23', '12-24', '12-25', '12-26'];
+                const blockedDatesReveillon = ['12-28', '12-29', '12-30', '12-31', '01-01', '01-02'];
+                const blockedDatesCarnaval = ['02-28', '03-01', '03-02', '03-04', '03-05', '03-06', '03-07', '03-08'];
+
+                const valoresAltaTemporada = {
+                    semana: {10: 650, 15: 800, 20: 1000},
+                    finalSemana: {10: 900, 15: 1100, 20: 1250}
+                };
+
+                const valoresBaixaTemporada = {
+                    semana: {10: 500, 15: 600, 20: 700},
+                    finalSemana: {10: 600, 15: 750, 20: 900}
+                };
+
+                // Função para direcionar o calendário para o mês escolhido
+                function updateCalendarMonth() {
+                    const selectedMonth = document.getElementById('month').value;
+                    const currentDate = new Date();
+                    const year = currentDate.getFullYear();
+                    document.getElementById('entryDate').value = `${year}-${selectedMonth}-01`;
+                    document.getElementById('exitDate').value = `${year}-${selectedMonth}-02`;
+                }
+
+                function toggleAnimalType() {
+                    const pets = document.getElementById('pets').value;
+                    const animalTypeDiv = document.getElementById('animalTypeDiv');
+                    animalTypeDiv.classList.toggle('hidden', pets !== 'sim');
+                }
+
+                function calculate() {
+                    const month = document.getElementById('month').value;
+                    const entryDate = new Date(document.getElementById('entryDate').value);
+                    const exitDate = new Date(document.getElementById('exitDate').value);
+                    const people = parseInt(document.getElementById('people').value);
+                    const pets = document.getElementById('pets').value;
+                    const animalType = document.getElementById('animalType').value;
+
+                    if (exitDate <= entryDate || (exitDate - entryDate) / (1000 * 60 * 60 * 24) < 2) {
+                        document.getElementById('result').innerHTML = 'A locação mínima é de duas noites.';
+                        return;
+                    }
+
+                    if (checkBlockedDates(entryDate, exitDate, blockedDatesNatal, "Para alugar o Natal, entre em contato com o proprietário!") ||
+                            checkBlockedDates(entryDate, exitDate, blockedDatesReveillon, "Para alugar o Réveillon, entre em contato com o proprietário!") ||
+                            checkBlockedDates(entryDate, exitDate, blockedDatesCarnaval, "Para alugar o Carnaval, consulte o proprietário!")) {
+                        return;
+                    }
+
+                    const nights = calculateNights(entryDate, exitDate);
+                    let total = 0;
+
+                    nights.forEach(night => {
+                        const dayOfWeek = night.getDay();
+                        const isWeekend = (dayOfWeek === 4 || dayOfWeek === 5 || dayOfWeek === 6); // quinta, sexta e sábado
+
+                        let rate;
+                        if (altaTemporada.includes(month)) {
+                            rate = isWeekend ? valoresAltaTemporada.finalSemana[people] : valoresAltaTemporada.semana[people];
+                        } else {
+                            rate = isWeekend ? valoresBaixaTemporada.finalSemana[people] : valoresBaixaTemporada.semana[people];
+                        }
+
+                        if (month === '11') {
+                            rate *= 1.1; // Acréscimo de 10% para novembro
+                        }
+
+                        total += rate;
+                    });
+
+                    if (pets === 'sim') {
+                        if (animalType === 'pequeno') {
+                            total *= 1.1;
+                            document.getElementById('result').innerHTML = `Total com animais de pequeno porte: R$ ${total.toFixed(2)} (Máximo 2 animais de pequeno porte).`;
+                        } else if (animalType === 'medio') {
+                            total *= 1.15;
+                            document.getElementById('result').innerHTML = `Total com animais de médio porte: R$ ${total.toFixed(2)} (Máximo 2 animais de médio porte).`;
+                        } else {
+                            document.getElementById('result').innerHTML = "Desculpe. Não permitimos animais de grande porte!";
+                            return;
+                        }
+                    } else {
+                        document.getElementById('result').innerHTML = `Total: R$ ${total.toFixed(2)}`;
+                    }
+                }
+
+                function calculateNights(entryDate, exitDate) {
+                    const nights = [];
+                    let currentDate = new Date(entryDate);
+                    while (currentDate < exitDate) {
+                        nights.push(new Date(currentDate));
+                        currentDate.setDate(currentDate.getDate() + 1);
+                    }
+                    return nights;
+                }
+
+                function checkBlockedDates(entryDate, exitDate, blockedDates, message) {
+                    let currentDate = new Date(entryDate);
+                    while (currentDate <= exitDate) {
+                        const formattedDate = `${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`;
+                        if (blockedDates.includes(formattedDate)) {
+                            document.getElementById('result').innerHTML = message;
+                            return true;
+                        }
+                        currentDate.setDate(currentDate.getDate() + 1);
+                    }
+                    return false;
+                }
+
+            </script>
+
+
+            <footer>
+                <p>&copy; 2024 Igor Molena. Todos os direitos reservados.</p>
+            </footer>
+
+            <script src="scriptmenu.js"></script>
+    </body>
 </html>
