@@ -151,21 +151,21 @@ footer p{
 
 /* Estilos de título */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Calibri', sans-serif;
+    font-family: 'Calibri', sans-serif;
     text-align: center;
     font-weight: bold;
 }
 
 /* Parágrafos */
 p {
-  font-family: 'Calibri', sans-serif;
+    font-family: 'Calibri', sans-serif;
     line-height: 1.6;
     text-align: justify;
 }
 
 /* Links */
 a {
-  font-family: 'Calibri', sans-serif;
+    font-family: 'Calibri', sans-serif;
     color: #0056b3;
     text-decoration: none;
 }
@@ -182,12 +182,12 @@ a:hover {
 /* ESTILO PARA SLIDE DE FOTOS DA PRIMEIRA PAGINA */
 section.slideshow {
     position: relative;
-    width: 98%;                  /* Largura responsiva */
-    max-width: 600px;            /* Limita a largura máxima */
-    aspect-ratio: 3 / 2;         /* Mantém a proporção de 3:2 */
+    width: 100%;
+    max-width: 1080px;
+    aspect-ratio: 3 / 2;
     margin: 20px auto;
     overflow: hidden;
-    border-radius: 10px;         /* Bordas arredondadas */
+    border-radius: 10px;
 }
 
 section.slideshow img {
@@ -196,45 +196,31 @@ section.slideshow img {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;           /* Preenche o contêiner mantendo proporção */
+    object-fit: cover;
     opacity: 0;
-    transition: opacity 1s ease; /* Transição suave de esmaecimento */
+    transition: opacity 1s ease;
 }
 
 section.slideshow img.active {
-    opacity: 1;                  /* Exibe a imagem ativa */
+    opacity: 1;
 }
 
-section.slideshow button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 18px;
-    z-index: 10;
-}
-
-section.slideshow .prev {
-    left: 10px;
-}
-
+/* Esconde as setas de direção */
+section.slideshow .prev,
 section.slideshow .next {
-    right: 10px;
+    display: none;
 }
 
+
 /* ///////////////////////////////////*/
 /* ///////////////////////////////////*/
 /* ///////////////////////////////////*/
 /* ///////////////////////////////////*/
 
-/* ESTILO PARA INCORPORACAO DE VIDEOS YOUTUBE */
+/* ESTILO PARA INCORPORACAO DE VIDEOS */
 iframe{
     position: relative;
-    width: 98%;                  /* Largura responsiva */
+    width: 100%;                  /* Largura responsiva */
     margin: 20px auto;
     overflow: hidden;
     border-radius: 10px;         /* Bordas arredondadas */
@@ -244,3 +230,142 @@ iframe{
 /* ///////////////////////////////////*/
 /* ///////////////////////////////////*/
 /* ///////////////////////////////////*/
+
+/* ESTILO SOMENTE PARA AGENDA DE LOCAÇÕES */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+th {
+    background-color: #4682b4;
+    color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color:turquoise;
+}
+
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+
+/* ESTILO SOMENTE DA CALCULADORA DE DIARIAS */
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+select, input {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #4682b4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #357ba8;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+@media (max-width: 480px) {
+    .form-container {
+        padding: 10px;
+    }
+
+    select, input {
+        padding: 7px;
+        font-size: 12px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .result {
+        font-size: 14px;
+    }
+}
+/* estilo da nova calculadora */
+label, select, input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+
+/* ESTILO PARA IMAGENS QUE ILUSTRAM TEXTO SIMPLES */
+
+#imgmgg{
+    max-width: 98%;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
