@@ -1,0 +1,246 @@
+/* ESTILO SOMENTE CORPO DO SITE */
+body {
+    max-width: 98%;
+    padding: 0;
+    margin: 0 auto !important;
+}
+
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+
+/* ESTILO MENU E RODAPE*/
+header {
+    width: 100%;
+    color: #4682b4;
+    background-color: #4682b4;
+}
+nav {
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/* Estilos do menu para desktop */
+.menu {
+    display: flex;
+    gap: 1rem;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu > li > a {
+    color: #FFF;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.menu > li:hover .submenu {
+    display: block;
+    background-color: #0099cc;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/* Estilo do submenu dropdown */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #4682b4;
+    padding: 0.5rem;
+    top: 100%;
+    left: 0;
+}
+
+.submenu li a {
+    padding: 0.5rem 1rem;
+    display: block;
+    color: #fff;
+}
+
+.submenu li a:hover {
+    display: inline-grid;
+    background-color: #4682b4;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/* Estilos para o botão hambúrguer */
+.hamburger {
+    display: none;
+    background-color: transparent;
+    border: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px;
+}
+
+/* Estilos para telas menores (menu hambúrguer) */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #0099cc;
+        width: 100%;
+    }
+
+    .menu li {
+        text-align: center;
+    }
+
+    .menu li a {
+        padding: 1rem;
+    }
+
+    .submenu {
+        position: relative;
+        padding-left: 1rem;
+    }
+
+    .submenu li a {
+        padding: 0.5rem 1rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+}
+/* Estilo para rodapé */
+footer{
+    background-color: #4682b4;
+}
+footer p{
+    font-size: 10px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+/* ////////////////////////////*/
+/* ////////////////////////////*/
+/* ////////////////////////////*/
+/* ////////////////////////////*/
+/* ////////////////////////////*/
+/* ////////////////////////////*/
+
+/* ESTILOS PARA FONTE DE TEXTO */
+* {
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #333; /* Ajuste a cor conforme necessário */
+}
+
+/* Estilos de título */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Calibri', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Parágrafos */
+p {
+  font-family: 'Calibri', sans-serif;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Links */
+a {
+  font-family: 'Calibri', sans-serif;
+    color: #0056b3;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #004494; /* Ajuste a cor do hover conforme necessário */
+}
+
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+
+/* ESTILO PARA SLIDE DE FOTOS DA PRIMEIRA PAGINA */
+section.slideshow {
+    position: relative;
+    width: 98%;                  /* Largura responsiva */
+    max-width: 600px;            /* Limita a largura máxima */
+    aspect-ratio: 3 / 2;         /* Mantém a proporção de 3:2 */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;         /* Bordas arredondadas */
+}
+
+section.slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* Preenche o contêiner mantendo proporção */
+    opacity: 0;
+    transition: opacity 1s ease; /* Transição suave de esmaecimento */
+}
+
+section.slideshow img.active {
+    opacity: 1;                  /* Exibe a imagem ativa */
+}
+
+section.slideshow button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    z-index: 10;
+}
+
+section.slideshow .prev {
+    left: 10px;
+}
+
+section.slideshow .next {
+    right: 10px;
+}
+
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+
+/* ESTILO PARA INCORPORACAO DE VIDEOS YOUTUBE */
+iframe{
+    position: relative;
+    width: 98%;                  /* Largura responsiva */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;         /* Bordas arredondadas */
+}
+
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
+/* ///////////////////////////////////*/
