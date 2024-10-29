@@ -9,7 +9,7 @@
         <title>AGENDA DE LOCAÇÕES</title>
         <link rel="stylesheet" href="estilogeral.css">
     </head>
-<body>
+    <body>
 
         <header>
             <label>CASA FRENTE MAR DO IGOR</label>
@@ -49,89 +49,90 @@
             </nav>
         </header>
 
-  <h1>DATAS AGENDADAS</h1>
-  
+        <h1>DATAS AGENDADAS</h1>
 
-            <section id="agenda">
-                <h2>Agenda - Outubro 2024</h2>
-                <table>
-                    <tr>
-                        <th>Data</th>
-                        <th>Status</th>
-                        <th>Informações</th>
-                    </tr>
 
-                    <tr>
-                        <td>25/10 a 27/10</td>
-                        <td class="reservado"><b>NA CASA AGORA<b/></td>
-                        <td>Leila</td>
-                    </tr>
+        <section id="agenda">
+        </table>
 
-                    <!-- Continue adicionando as linhas conforme necessário -->
-                </table>
+        <h2>Agenda - Novembro 2024</h2>
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Status</th>
+                <th>Informações</th>
+            </tr>
+            <tr>
+                <td>01/11 a 03/11</td>
+                <td class="reservado">Alugado</td>
+                <td>Sandra</td>
+            </tr>
+            <tr>
+                <td>08/11 a 10/11</td>
+                <td class="reservado">Alugado</td>
+                <td>Camille</td>
+            </tr>
+            <tr>
+                <td>15/11 a 17/11</td>
+                <td class="reservado">Alugado</td>
+                <td>Thais</td>
+            </tr>
 
-              <h2>Agenda - Novembro 2024</h2>
-                <table>
-                    <tr>
-                        <th>Data</th>
-                        <th>Status</th>
-                        <th>Informações</th>
-                    </tr>
-                    <tr>
-                        <td>01/11 a 03/11</td>
-                        <td class="reservado">Alugado</td>
-                        <td>Sandra</td>
-                    </tr>
-                  <tr>
-                        <td>08/11 a 10/11</td>
-                        <td class="reservado">Alugado</td>
-                        <td>Camille</td>
-                    </tr>
-                           <tr>
-                        <td>15/11 a 17/11</td>
-                        <td class="reservado">Alugado</td>
-                        <td>Thais</td>
-                    </tr>
+            <!-- Continue adicionando as linhas conforme necessário -->
+        </table>
+        <h2>Agenda - Dezembro 2024</h2>
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Status</th>
+                <th>Informações</th>
+            </tr>
+            <tr>
+                <td>22/12 a 26/12</td>
+                <td class="reservado">Alugado</td>
+                <td>Rosangela</td>
+            </tr>
+            <tr>
+                <td>27/12 a 02/01</td>
+                <td class="reservado">Alugado</td>
+                <td>Poliana</td>
+            </tr>
 
-                    <!-- Continue adicionando as linhas conforme necessário -->
-                </table>
-                <h2>Agenda - Dezembro 2024</h2>
-                <table>
-                    <tr>
-                        <th>Data</th>
-                        <th>Status</th>
-                        <th>Informações</th>
-                    </tr>
-                    <tr>
-                        <td>22/12 a 26/12</td>
-                        <td class="reservado">Alugado</td>
-                        <td>Rosangela</td>
-                    </tr>
-                    <tr>
-                        <td>27/12 a 02/01</td>
-                        <td class="reservado">Alugado</td>
-                        <td>Poliana</td>
-                    </tr>
+            <!-- Continue adicionando as linhas conforme necessário -->
+        </table>
+        <h2>Agenda - Janeiro 2025</h2>
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Status</th>
+                <th>Informações</th>
+            </tr>
+            <tr>
+                <td>17/01 a 19/01</td>
+                <td class="reservado">Reservado</td>
+                <td>Chiquinho</td>
+            </tr>
 
-                    <!-- Continue adicionando as linhas conforme necessário -->
-                </table>
-               <h2>Agenda - Janeiro 2025</h2>
-                <table>
-                    <tr>
-                        <th>Data</th>
-                        <th>Status</th>
-                        <th>Informações</th>
-                    </tr>
-                    <tr>
-                        <td>17/01 a 19/01</td>
-                        <td class="reservado">RESERVADO</td>
-                        <td>Chiquinho</td>
-                    </tr>
-                    
-                    <!-- Continue adicionando as linhas conforme necessário -->
-                </table>      
-            </section>
+            <!-- Continue adicionando as linhas conforme necessário -->
+        </table>      
+    </section>
+    <script>
+        // Função para atualizar o status das reservas
+        function updateReservaStatus() {
+            const statusElements = document.querySelectorAll('.reservado');
 
+            statusElements.forEach(status => {
+                if (status.textContent.includes('Reservado')) {
+                    status.style.color = '#D2691E'; // Vermelho para "RESERVADO"
+                } else {
+                    status.style.color = '#66dc0e'; // Verde padrão
+                }
+            });
+        }
+
+        // Chame essa função após o carregamento da página ou quando a agenda for atualizada
+        window.onload = updateReservaStatus;
+    </script>
     <footer>
         <p>&copy; 2024 Igor Molena. Todos os direitos reservados.</p>
     </footer>
