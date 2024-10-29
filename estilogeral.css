@@ -11,120 +11,138 @@ body {
 /* ///////////////////////////////////*/
 
 /* ESTILO MENU E RODAPE*/
+/* Estilos do cabeçalho */
 header {
-    width: 100%;
-    color: #4682b4;
-    background-color: #4682b4;
-}
-nav {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 1rem;
+    background-color: #003366; /* Cor de fundo do cabeçalho */
+    padding: 10px 20px;
+    color: white;
 }
 
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border-radius: 10px 10px 10px 10px;
-}
-
-/* Estilos do menu para desktop */
-.menu {
-    display: flex;
-    gap: 1rem;
-}
-
-.menu li {
-    position: relative;
-}
-
-.menu > li > a {
+header label {
+    font-size: px;
+    font-weight: bold;
     color: #FFF;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    display: block;
-    border-radius: 10px 10px 10px 10px;
 }
 
-.menu > li:hover .submenu {
-    display: block;
-    background-color: #0099cc;
-    border-radius: 10px 10px 10px 10px;
-}
-
-/* Estilo do submenu dropdown */
-.submenu {
-    display: none;
-    position: absolute;
-    background-color: #4682b4;
-    padding: 0.5rem;
-    top: 100%;
-    left: 0;
-}
-
-.submenu li a {
-    padding: 0.5rem 1rem;
-    display: block;
-    color: #fff;
-}
-
-.submenu li a:hover {
-    display: inline-grid;
-    background-color: #4682b4;
-    border-radius: 10px 10px 10px 10px;
-}
-
-/* Estilos para o botão hambúrguer */
+/* Estilos do botão hambúrguer */
 .hamburger {
-    display: none;
-    background-color: transparent;
+    display: none; /* Esconde no desktop */
+    background: none;
     border: none;
-    flex-direction: column;
     cursor: pointer;
+    flex-direction: column;
 }
 
 .hamburger div {
     width: 25px;
     height: 3px;
     background-color: #fff;
-    margin: 4px;
+    margin: 4px 0;
 }
 
-/* Estilos para telas menores (menu hambúrguer) */
+/* Estilos do menu principal */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu > li {
+    position: relative;
+}
+
+.menu > li > a {
+    text-decoration: none;
+    color: #FFF;
+    font-size: 14px;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.menu > li > a:hover {
+    background-color: #005bb5;
+    border-radius: 4px;
+}
+
+/* Estilos para submenu */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #005bb5;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 4px;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.submenu li a {
+    color: #FFF;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.submenu li a:hover {
+    background-color: #003366;
+}
+
+/* Exibe o submenu ao passar o mouse */
+.menu > li:hover .submenu {
+    display: block;
+}
+
+/* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Exibe o botão hambúrguer */
+    }
+
+    /* Menu principal em dispositivos móveis */
     .menu {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
         flex-direction: column;
-        background-color: #0099cc;
-        width: 60%;
+        width: 100%;
+        background-color: #003366;
+        padding: 10px 0;
     }
 
-    .menu li {
-        text-align: left;
+    .menu > li {
+        width: 100%;
     }
 
-    .menu li a {
-        padding: 1rem;
-    }
-
-    .submenu {
-        position: relative;
-        padding-left: 1rem;
-    }
-
-    .submenu li a {
-        padding: 0.5rem 1rem;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
+    /* Exibe o menu ao clicar no botão hambúrguer */
     .menu.show {
         display: flex;
     }
+
+    .submenu {
+        position: static;
+        display: none;
+        padding-left: 20px;
+    }
+
+    /* Exibe o submenu ao clicar no item */
+    .menu > li:focus-within .submenu,
+    .menu > li:hover .submenu {
+        display: flex;
+        flex-direction: column;
+    }
 }
+
 /* Estilo para rodapé */
 footer{
     background-color: #4682b4;
