@@ -48,11 +48,96 @@
                 </ul>
             </nav>
         </header>
-
-        <section class="text-section">
-        <h1>ESTA PÁGINA ESTARÁ DISPONÍVEL EM BREVE!</h1>
-            <p>Galeria com fotos da casa e de visitantes</p>
+        <h3>Veja imagens da casa</h3>
+        <p class="pmosaic">Sala de Estar.</p>
+        <section id="galeria">
+            <div class="galeria-container">
+                <img src="sala01.jpg" alt="Imagem 1" onclick="abrirEmTelaCheia(this)">
+                <img src="sala02.jpg" alt="Imagem 2" onclick="abrirEmTelaCheia(this)">
+                <img src="sala03.jpg" alt="Imagem 3" onclick="abrirEmTelaCheia(this)">
+                <img src="sala04.jpg" alt="Imagem 4" onclick="abrirEmTelaCheia(this)">
+                <img src="sala05.jpg" alt="Imagem 5" onclick="abrirEmTelaCheia(this)">
+                <img src="sala06.jpg" alt="Imagem 6" onclick="abrirEmTelaCheia(this)">
+                <img src="sala07.jpg" alt="Imagem 7" onclick="abrirEmTelaCheia(this)">
+                <img src="sala08.jpg" alt="Imagem 8" onclick="abrirEmTelaCheia(this)">
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+            <!-- Modal para imagem em tela cheia -->
+            <div id="imagemTelaCheia" onclick="fecharTelaCheia()">
+                <img id="imagemExpandida" src="" alt="Imagem ampliada">
+            </div>
         </section>
+        <p class="pmosaic">Espaço Gourmet ● Cozinha ● Sala de Jantar ● Churrasqueira.</p>
+        <section id="galeria">
+            <div class="galeria-container">
+                <img src="cozinha01.jpg" alt="Imagem 1" onclick="abrirEmTelaCheia(this)">
+                <img src="cozinha02.jpg" alt="Imagem 2" onclick="abrirEmTelaCheia(this)">
+                <img src="cozinha03.jpg" alt="Imagem 3" onclick="abrirEmTelaCheia(this)">
+                <img src="cozinha04.jpg" alt="Imagem 4" onclick="abrirEmTelaCheia(this)">
+                <img src="salajantar.jpg" alt="Imagem 5" onclick="abrirEmTelaCheia(this)">
+                <img src="churras.jpg" alt="Imagem 6" onclick="abrirEmTelaCheia(this)">
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+            <!-- Modal para imagem em tela cheia -->
+            <div id="imagemTelaCheia" onclick="fecharTelaCheia()">
+                <img id="imagemExpandida" src="" alt="Imagem ampliada">
+            </div>
+        </section>
+        <p class="pmosaic">Piscina ● Área Social.</p>
+        <section id="galeria">
+            <div class="galeria-container">
+                <img src="piscina01.jpg" alt="Imagem 1" onclick="abrirEmTelaCheia(this)">
+                <img src="piscina02.jpg" alt="Imagem 2" onclick="abrirEmTelaCheia(this)">
+                <img src="pergola1.jpg" alt="Imagem 3" onclick="abrirEmTelaCheia(this)">
+                <img src="pergola2.jpg" alt="Imagem 4" onclick="abrirEmTelaCheia(this)">
+
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+            <!-- Modal para imagem em tela cheia -->
+            <div id="imagemTelaCheia" onclick="fecharTelaCheia()">
+                <img id="imagemExpandida" src="" alt="Imagem ampliada">
+            </div>
+        </section>
+        <p class="pmosaic">Outras Imagens</p>
+        <section id="galeria">
+            <div class="galeria-container">
+                <img src="novafachada.jpg" alt="Imagem 1" onclick="abrirEmTelaCheia(this)">
+                <img src="flagcasapraia.png" alt="Imagem 2" onclick="abrirEmTelaCheia(this)">
+                <img src="feiramgg.jpg" alt="Imagem 3" onclick="abrirEmTelaCheia(this)">
+                <img src="itaocapraia.jpg" alt="Imagem 4" onclick="abrirEmTelaCheia(this)">
+                <img src="plataformamgg.jpg" alt="Imagem 5" onclick="abrirEmTelaCheia(this)">
+                <img src="praiaagenormgg.png" alt="Imagem 6" onclick="abrirEmTelaCheia(this)">
+                <img src="praiacentromgg.png" alt="Imagem 7" onclick="abrirEmTelaCheia(this)">
+                <img src="orlageralmgg.jpeg" alt="Imagem 8" onclick="abrirEmTelaCheia(this)">
+                <img src="pocoantas.jpeg" alt="Imagem 9" onclick="abrirEmTelaCheia(this)">
+                <img src="santa.jpg" alt="Imagem 10" onclick="abrirEmTelaCheia(this)">
+                <img src="agapeu.jpg" alt="Imagem 4" onclick="abrirEmTelaCheia(this)">
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+            <!-- Modal para imagem em tela cheia -->
+            <div id="imagemTelaCheia" onclick="fecharTelaCheia()">
+                <img id="imagemExpandida" src="" alt="Imagem ampliada">
+            </div>
+        </section>
+
+
+
+        <script>
+            // Abre a imagem em tela cheia
+            function abrirEmTelaCheia(elemento) {
+                const modal = document.getElementById("imagemTelaCheia");
+                const imagemExpandida = document.getElementById("imagemExpandida");
+                imagemExpandida.src = elemento.src; // Define a imagem do modal com a imagem clicada
+                modal.style.display = "flex"; // Exibe o modal
+            }
+
+// Fecha o modal em tela cheia
+            function fecharTelaCheia() {
+                document.getElementById("imagemTelaCheia").style.display = "none";
+            }
+
+        </script>
+
 
         <footer>
             <p>&copy; 2024 Igor Molena. Todos os direitos reservados.</p>
