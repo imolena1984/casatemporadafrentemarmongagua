@@ -1,42 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
     const hamburger = document.querySelector(".hamburger");
     const menu = document.querySelector(".menu");
-    const menuItems = document.querySelectorAll(".menu > li");
 
     // Toggle para o menu principal no mobile
     hamburger.addEventListener("click", function () {
         menu.classList.toggle("active");
-
-        // Animação de rotação para o ícone hambúrguer
-        hamburger.classList.toggle("rotate");
     });
 
-    // Toggle para submenus no mobile com transição suave
+    // Toggle para submenus no mobile
+    const menuItems = document.querySelectorAll(".menu > li");
+
     menuItems.forEach((item) => {
         if (item.querySelector(".submenu")) {
             item.addEventListener("click", function (event) {
                 event.stopPropagation();
                 item.classList.toggle("active");
                 const submenu = item.querySelector(".submenu");
-                
-                // Transição suave para os submenus
                 submenu.classList.toggle("active");
-
-                // Adiciona o botão de voltar no submenu
-                if (!submenu.querySelector(".back-btn")) {
-                    const backButton = document.createElement("li");
-                    backButton.classList.add("back-btn");
-                    backButton.innerHTML = "<a href='#'>Voltar</a>";
-                    submenu.insertBefore(backButton, submenu.firstChild);
-
-                    // Evento para o botão de voltar
-                    backButton.addEventListener("click", function (e) {
-                        e.stopPropagation();
-                        item.classList.remove("active");
-                        submenu.classList.remove("active");
-                    });
-                }
             });
         }
     });
+});
+
+
+
+//extras    
+// Seleciona o modal
+const modal = document.getElementById("calcModal");
+
+// Seleciona o elemento <span> que fecha o modal
+const closeModalSpan = document.getElementsByClassName("close")[0];
+
+// Função para abrir o modal
+function openModal() {
+    modal.style.display = "block";
+}
+
+// Quando o usuário clicar em <span> (x), fecha o modal
+closeModalSpan.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Quando o usuário clica em qualquer lugar fora do modal, fecha-o
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Ao carregar a página, abre o modal
+document.addEventListener("DOMContentLoaded", function() {
+    openModal(); // Abre o modal automaticamente
 });
