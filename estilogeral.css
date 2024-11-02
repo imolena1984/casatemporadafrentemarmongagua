@@ -133,40 +133,6 @@ header label {
         background-color: #7aaed6; /* Tom mais claro */
     }
 }
-/* Adicionar transição suave ao menu */
-.menu, .submenu {
-    transition: max-height 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-}
-
-.menu.active, .submenu.active {
-    opacity: 1;
-    max-height: 500px; /* Defina uma altura que acomode o conteúdo */
-}
-
-/* Animação para o ícone do hambúrguer */
-.hamburger.rotate div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.rotate div:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.rotate div:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Botão voltar estilo */
-.back-btn {
-    background-color: #4682b4; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-}
 
 /* Estilo para rodapé */
 footer{
