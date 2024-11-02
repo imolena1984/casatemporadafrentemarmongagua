@@ -1,22 +1,28 @@
- // Função para alternar a exibição do menu principal no modo mobile
-    function toggleMenu() {
-        const menu = document.querySelector('.menu');
-        menu.classList.toggle('active');
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
 
-    // Função para abrir um submenu específico
-    function openSubmenu(id) {
-        const submenu = document.getElementById(id);
-        submenu.classList.add('active');
-        document.querySelector('.menu').classList.remove('active'); // Fechar menu principal
-    }
+    // Toggle para o menu principal no mobile
+    hamburger.addEventListener("click", function () {
+        menu.classList.toggle("active");
+    });
 
-    // Função para voltar ao menu principal a partir de um submenu
-    function goBack() {
-        const submenus = document.querySelectorAll('.submenu');
-        submenus.forEach((submenu) => submenu.classList.remove('active'));
-        document.querySelector('.menu').classList.add('active'); // Reabrir menu principal
-    }
+    // Toggle para submenus no mobile
+    const menuItems = document.querySelectorAll(".menu > li");
+
+    menuItems.forEach((item) => {
+        if (item.querySelector(".submenu")) {
+            item.addEventListener("click", function (event) {
+                event.stopPropagation();
+                item.classList.toggle("active");
+                const submenu = item.querySelector(".submenu");
+                submenu.classList.toggle("active");
+            });
+        }
+    });
+});
+
+
 
 //extras    
 // Seleciona o modal
