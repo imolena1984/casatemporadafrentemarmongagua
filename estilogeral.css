@@ -11,127 +11,107 @@ body {
 /* ///////////////////////////////////*/
 
 /* ESTILO MENU E RODAPE*/
-/* Estilos gerais do cabeçalho */
-header {
-    display: flex;
-    font-size: 10px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px;
-    background-color: #4682b4; /* Azul principal */
-    color: #ffffff;
-}
-
-header label {
-    font-size: 10px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-/* Estilos do botão hambúrguer */
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    background: none;
-    border: none;
-    outline: none;
-}
-
-.hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: #ffffff;
-    margin: 5px 0;
-    transition: transform 0.3s ease;
-}
-
-/* Oculta o menu principal no mobile */
-.menu {
-    display: none;
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    background-color: #4682b4; /* Azul principal */
-}
-
-.menu.active {
-    display: flex;
-    position: absolute;
-    top: 60px;
-    left: 0;
+/* Container do menu */
+.menu-container {
+    position: fixed;
+    top: 5px;
+    left: 5px;
     z-index: 1000;
 }
 
-.menu > li {
-    border-bottom: 1px solid #5a9bd6; /* Tom mais claro */
+/* Botão do Menu */
+.menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background-color: #4682b4;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.menu > li > a {
-    color: #ffffff;
-    padding: 15px 20px;
+.menu-btn.active {
+    background-color: tomato;
+    transform: rotate(90deg);
+}
+
+.menu-btn div {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.4s;
+}
+
+.menu-btn div:nth-child(2) {
+    margin: 6px 0;
+}
+
+/* Menu */
+.menu, .submenu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 250px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: #4682b4;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    z-index: 10;
+    display: none;
+}
+
+.menu.show, .submenu.show {
     display: block;
-    text-decoration: none;
-    font-weight: bold;
 }
 
-/* Estilos dos submenus */
-.submenu {
-    display: none; /* Oculta os submenus por padrão */
-    background-color: #5a9bd6; /* Tom intermediário */
-    padding-left: 15px;
+/* Itens do Menu */
+.menu ul li, .submenu ul li {
     list-style: none;
+    padding: 15px;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
 }
 
-.menu > li.active .submenu {
-    display: flex; /* Exibe o submenu ao clicar */
-    flex-direction: column;
+.menu ul li:hover, .submenu ul li:hover {
+    background-color: #87CEEB;
 }
 
-.submenu li a {
-    color: #ffffff;
-    padding: 10px 20px;
-    display: block;
-    text-decoration: none;
+/* Botão Voltar no Submenu */
+.back-btn {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 10px;
+    color: #fff;
+    background-color: #005f7f; /* Cor de fundo para o botão voltar */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Menu em telas maiores */
-@media (min-width: 768px) {
-    .hamburger {
-        display: none;
-    }
+.back-btn:hover {
+    background-color: #007f99; /* Cor ao passar o mouse */
+}
 
-    .menu {
-        display: flex;
-        flex-direction: row;
-        position: static;
-        background: none;
-    }
-
-    .menu > li {
-        border: none;
-        position: relative;
-    }
-
-    .submenu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        display: none;
-        background-color: #5a9bd6; /* Tom intermediário */
-        padding: 0;
-    }
-
-    .menu > li:hover .submenu {
-        display: block;
-    }
-
-    .submenu li a {
-        padding: 10px 15px;
-        background-color: #7aaed6; /* Tom mais claro */
-    }
+.back-btn::before {
+    content: '←';
+    margin-right: 8px;
+    font-size: 18px;
+}
+.linkmenu{
+    color: #fff;
+ text-decoration: none;
+}
+.linkmenu:hover{
+    color: #fff;
+ text-decoration: none;
 }
 
 /* Estilo para rodapé */
@@ -428,7 +408,7 @@ iframe{
 .pmosaic{
     color: #0056b3;
 }
-#galeria {
+#galeriasite {
     padding: 10px;
     background-color: #fff;
 }
