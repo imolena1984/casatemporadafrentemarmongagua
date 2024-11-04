@@ -10,43 +10,51 @@
         <link rel="stylesheet" href="estilogeral.css">
     </head>
     <body>
-
         <header>
-            <label>CASA FRENTE MAR DO IGOR</label>
-            <nav>
-                <button class="hamburger" onclick="toggleMenu()">
+            <div class="menu-container">
+                <div class="menu-btn" onclick="toggleMenu()">
                     <div></div>
                     <div></div>
                     <div></div>
-                </button>
-                <ul class="menu">
-                    <li><a href="index.html">INÍCIO</a></li>
-                    <li><a href="mongagua.html">MONGAGUÁ</a></li>
-                    <li>
-                        <a href="#">GALERIA</a>
-                        <ul class="submenu">
-                            <li><a href="fotos.html">FOTOS</a></li>
-                            <li><a href="videos.html">VÍDEOS</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">ALUGUE</a>
-                        <ul class="submenu">
-                            <li><a href="agenda.html">AGENDA</a></li>
-                            <li><a href="calculadora.html">PREÇOS</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">COMO CHEGAR</a>
-                        <ul class="submenu">
-                            <li><a href="googlemaps.html">MAPS</a></li>
-                            <li><a href="waze.html">WAZE</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="regrasdacasa.html">REGRAS DA CASA</a></li>
-                    <li><a href="comente.html">COMENTE</a></li> <!-- nao esquecer que sera feito em php -->
-                </ul>
-            </nav>
+                </div>
+
+                <nav class="menu">
+                    <ul>
+                        <li><a class="linkmenu" href="index.html">INICIO</a></li>
+                        <li><a class="linkmenu" href="mongagua.html">MONGAGUÁ</a></li>
+                        <li onclick="openSubmenu('galeria')">GALERIA</li>
+                        <li onclick="openSubmenu('alugue')">ALUGUE</li>
+                        <li onclick="openSubmenu('como-chegar')">COMO CHEGAR</li>
+                        <li><a class="linkmenu" href="regrasdacasa.html">REGRAS DA CASA</a></li>
+                        <li><a class="linkmenu" href="comente.html">COMENTE</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Submenus -->
+                <div id="galeria" class="submenu">
+                    <div class="back-btn" onclick="goBack()">Voltar</div>
+                    <ul>
+                        <li><a class="linkmenu" href="fotos.html">FOTOS</a></li>
+                        <li><a class="linkmenu" href="videos.html">VIDEOS</a></li>
+                    </ul>
+                </div>
+
+                <div id="alugue" class="submenu">
+                    <div class="back-btn" onclick="goBack()">Voltar</div>
+                    <ul>
+                        <li><a class="linkmenu" href="agenda.html">AGENDA</a></li>
+                        <li><a class="linkmenu" href="calculadora.html">PREÇOS</a></li>
+                    </ul>
+                </div>
+
+                <div id="como-chegar" class="submenu">
+                    <div class="back-btn" onclick="goBack()">Voltar</div>
+                    <ul>
+                        <li><a class="linkmenu" href="googlemaps.html">GOOGLE MAPS</a></li>
+                        <li><a class="linkmenu" href="waze.html">WAZE</a></li>
+                    </ul>
+                </div>
+            </div>
         </header>
 
         <section class="text-section">
